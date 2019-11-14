@@ -1,0 +1,230 @@
+\documentclass[oneside,11pt, a4paper, footinclude=true, headinclude=true, cleardoublepage=empty]{scrbook}
+\usepackage[linedheaders,parts,pdfspacing,dottedtoc]{classicthesis}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{acronym}
+\usepackage[a4paper, hmargin={2.5cm, 2.5cm}, vmargin={2cm, 2cm}]{geometry}
+\usepackage{eso-pic} % \AddToShipoutPicture
+\usepackage{graphicx} % \includegraphics
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{csquotes}
+\usepackage{bookmark}
+\usepackage[toc,page]{appendix}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{times}
+\usepackage{lingmacros}
+\usepackage{color, colortbl}
+\usepackage{tabularx}
+\usepackage{pdfpages}
+\usepackage{footnote}
+\definecolor{mygray}{rgb}{0.86,0.86,0.86}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+\usepackage{hyperref}
+\usepackage[backend=biber,defernumbers=true, style=authortitle]{biblatex}
+\usepackage[multiple]{footmisc}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Algoritme}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+\usepackage{xcolor}
+\setboolean{@twoside}{false}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{relsize}
+\renewcommand{\baselinestretch}{2.0}
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil(#1)%
+    \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+    \newsavebox\mybox
+    \newenvironment{aquote}[1]
+      {\savebox\mybox{#1}\begin{quote}}
+          {\signed{\usebox\mybox}\end{quote}}
+
+
+\renewcommand{\cfttabpresnum}{} % get rid of "table"
+\renewcommand{\cftfigpresnum}{}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem{theorem}{Sætning}[section]
+\theoremstyle{lemma}
+\newtheorem*{lemma}{Lemma}
+
+\def \ColourPDF {Images/ku-farve.pdf}
+\def \TitlePDF   {Images/ku-en.pdf}
+\usepackage{minted}
+\usemintedstyle{emacs}
+\usepackage{keyval,kvoptions,fancyvrb,fvextra,upquote,ifthen,calc,ifplatform,pdftexcmds,etoolbox,xstring,lineno,framed,shellesc}
+\subject{ 
+  \vspace{3.5cm}
+  \scriptsize{Matematiknoter til Matematik A og videregående} \\
+  \Large{Matematik} \\}
+\renewcommand{\baselinestretch}{1.5}
+\title{
+  \Huge{Matematik}\\
+  \Large{... og hvad der kommer med}
+}
+\renewcommand*{\lstlistlistingname}{Code Listings}
+\renewcommand*{\lstlistingname}{Code Listing}
+\definecolor{gray}{gray}{0.5}
+\colorlet{commentcolour}{green!50!black}
+
+\colorlet{stringcolour}{red!60!black}
+\colorlet{keywordcolour}{magenta!90!black}
+\colorlet{exceptioncolour}{yellow!50!red}
+\colorlet{commandcolour}{blue!60!black}
+\colorlet{numpycolour}{blue!60!green}
+\colorlet{literatecolour}{magenta!90!black}
+\colorlet{promptcolour}{green!50!black}
+\colorlet{specmethodcolour}{violet}
+\newcommand*{\framemargin}{3ex}
+\usepackage{dirtytalk}
+\newcommand*{\literatecolour}{\textcolor{literatecolour}}
+\usepackage{subcaption}
+\newcommand*{\pythonprompt}{\textcolor{promptcolour}{{>}{>}{>}}}
+\lstdefinestyle{mypython}{
+%\lstset{
+%keepspaces=true,
+language=python,
+showtabs=true,
+tab=,
+tabsize=2,
+basicstyle=\ttfamily\footnotesize,%\setstretch{.5},
+stringstyle=\color{stringcolour},
+showstringspaces=false,
+alsoletter={1234567890},
+otherkeywords={\%, \}, \{, \&, \|},
+keywordstyle=\color{keywordcolour}\bfseries,
+emph={and,break,class,continue,def,yield,del,elif ,else,%
+except,exec,finally,for,from,global,if,import,in,%
+lambda,not,or,pass,print,raise,return,try,while,assert,with},
+emphstyle=\color{blue}\bfseries,
+emph={[2]True, False, None},
+emphstyle=[2]\color{keywordcolour},
+emph={[3]object,type,isinstance,copy,deepcopy,zip,enumerate,reversed,list,set,len,dict,tuple,xrange,append,execfile,real,imag,reduce,str,repr},
+emphstyle=[3]\color{commandcolour},
+emph={Exception,NameError,IndexError,SyntaxError,TypeError,ValueError,OverflowError,ZeroDivisionError},
+emphstyle=\color{exceptioncolour}\bfseries,
+%upquote=true,
+morecomment=[s]{"""}{"""},
+commentstyle=\color{commentcolour}\slshape,
+%emph={[4]1, 2, 3, 4, 5, 6, 7, 8, 9, 0},
+emph={[4]ode, fsolve, sqrt, exp, sin, cos,arctan, arctan2, arccos, pi,  array, norm, solve, dot, arange, isscalar, max, sum, flatten, shape, reshape, find, any, all, abs, plot, linspace, legend, quad, polyval,polyfit, hstack, concatenate,vstack,column_stack,empty,zeros,ones,rand,vander,grid,pcolor,eig,eigs,eigvals,svd,qr,tan,det,logspace,roll,min,mean,cumsum,cumprod,diff,vectorize,lstsq,cla,eye,xlabel,ylabel,squeeze},
+emphstyle=[4]\color{numpycolour},
+emph={[5]__init__,__add__,__mul__,__div__,__sub__,__call__,__getitem__,__setitem__,__eq__,__ne__,__nonzero__,__rmul__,__radd__,__repr__,__str__,__get__,__truediv__,__pow__,__name__,__future__,__all__},
+emphstyle=[5]\color{specmethodcolour},
+emph={[6]assert,yield},
+emphstyle=[6]\color{keywordcolour}\bfseries,
+emph={[7]range},
+emphstyle={[7]\color{keywordcolour}\bfseries},
+% emph={[7]self},
+% emphstyle=[7]\bfseries,
+literate=*%
+{:}{{\literatecolour:}}{1}%
+{=}{{\literatecolour=}}{1}%
+{-}{{\literatecolour-}}{1}%
+{+}{{\literatecolour+}}{1}%
+{*}{{\literatecolour*}}{1}%
+{**}{{\literatecolour{**}}}2%
+{/}{{\literatecolour/}}{1}%
+{//}{{\literatecolour{//}}}2%
+{!}{{\literatecolour!}}{1}%
+%{(}{{\literatecolour(}}{1}%
+%{)}{{\literatecolour)}}{1}%
+{[}{{\literatecolour[}}{1}%
+{]}{{\literatecolour]}}{1}%
+{<}{{\literatecolour<}}{1}%
+{>}{{\literatecolour>}}{1}%
+{>>>}{\pythonprompt}{3}%
+,%
+%aboveskip=.5ex,
+frame=trbl,
+%frameround=tttt,
+%framesep=.3ex,
+rulecolor=\color{black!40},
+%framexleftmargin=\framemargin,
+%framextopmargin=.1ex,
+%framexbottommargin=.1ex,
+%framexrightmargin=\framemargin,
+%framexleftmargin=1mm, framextopmargin=1mm, frame=shadowbox, rulesepcolor=\color{blue},#1
+%frame=tb,
+backgroundcolor=\color{white},
+breakindent=.5\textwidth,frame=single,breaklines=true%
+%}
+}
+\lstset{style=mypython}
+\addbibresource{references.bib}
+\addbibresource{referenceszot.bib}
+\lstdefinestyle{mypythoninline}{
+style=mypython,%
+basicstyle=\ttfamily,%
+keywordstyle=\color{keywordcolour},%
+emphstyle={[7]\color{keywordcolour}},%
+emphstyle=\color{exceptioncolour},%
+literate=*%
+{:}{{\literatecolour:}}{2}%
+{=}{{\literatecolour=}}{2}%
+{-}{{\literatecolour-}}{2}%
+{+}{{\literatecolour+}}{2}%
+{*}{{\literatecolour*}}2%
+{**}{{\literatecolour{**}}}3%
+{/}{{\literatecolour/}}{2}%
+{//}{{\literatecolour{//}}}{2}%
+{!}{{\literatecolour!}}{2}%
+%{(}{{\literatecolour(}}{2}%
+%{)}{{\literatecolour)}}{2}%
+{[}{{\literatecolour[}}{2}%
+{]}{{\literatecolour]}}{2}%
+{<}{{\literatecolour<}}{2}%
+{<=}{{\literatecolour{<=}}}3%
+{>}{{\literatecolour>}}{2}%
+{>=}{{\literatecolour{>=}}}3%
+{==}{{\literatecolour{==}}}3%
+{!=}{{\literatecolour{!=}}}3%
+{+=}{{\literatecolour{+=}}}3%
+{-=}{{\literatecolour{-=}}}3%
+{*=}{{\literatecolour{*=}}}3%
+{/=}{{\literatecolour{/=}}}3%
+%% emphstyle=\color{blue},%
+}
+
+\newcommand*{\pyth}{\lstinline[style=mypythoninline]}
+
+\author{
+  \Large{Sebastian Winkelmann}
+}
+\date{\today}
+
+
+%DH: general comments: check commas and spelling. You can easily lose points if the writing comes across as sloppy, because reviewers might assume that the research was also sloppy.
+
+\newenvironment{longlisting}{\captionsetup{type=listing}}{}
+\begin{document}
+\pagenumbering{roman}
+\clearpage\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\pagenumbering{arabic}\part{Matematik A}
+\part{Videregående}
+%\include{videreg/set}
+\include{videreg/reel}
+\include{videreg/konvergens}
+\include{videreg/diff}
+%\part{Videregående | Flere variable}
+\newpage
+\end{document}

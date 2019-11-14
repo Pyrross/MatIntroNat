@@ -1,0 +1,62 @@
+\chapter{Konvergens, følger, kontinuitet og grænser}
+En følge er en uendelig sekvens af tal\begin{equation}
+    \{a_n\}=a_1,a_2,a_3,\ldots,a_n,\ldots
+\end{equation}Man bruger notationen $\{a_n\}$ for en følge, for eksempel\begin{align*}
+    \{n^2\}&=1,4,9,16,25,36,49,\ldots,a^n,\ldots\\
+    \{1/n\}&=1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\ldots,\frac{1}{n},\ldots\\
+    \{\cos{n}\}&=\cos{1},\cos{2},\cos{3},\ldots,\cos{n},\ldots\\
+    \{a_n\}&=a_1,a_2,a_3,a_4,\ldots,a_n,\ldots
+\end{align*}
+Man kan desuden angive det ønskede interval (hvis det er forskellig for $[n,\infty)$  ):$$\{a_n\}_{n=z}^\infty$$
+\section{Konvergens af følger}
+Talfølger kan enten gå mod et bestemt tal, eller fortsætte i det uendelige. I\begin{align}
+    \left\{\frac{n}{n-1}\right\}&=0,\frac{1}{2},\frac{2}{3},\frac{3}{4},\frac{4}{5},\ldots,\frac{n}{n-1},\ldots\label{eq:conv}\\
+    \{n^2\}&=1,4,9,16,\ldots,n^2,\ldots\label{eq:nonconv}
+\end{align}
+er det kun (\ref{eq:conv}) som rent faktisk går mod et tal (her tallet 1), mens (\ref{eq:nonconv}) blot stiger til et større tal hver for hver gang. Her siger vi at \textbf{\ref{eq:conv} konvergerer mod grænseværdien 1}, mens \textbf{\ref{eq:nonconv} divergerer}.
+\begin{definition}{Konvergens af følge}
+Følgen $\{a_n\}$ konvergerer mod tallet $a$ når der for ethvert reelt tal $\epsilon>0$ findes et tal $N\in\mathbb{N}$, således at $|a_n-a|<\epsilon$ for alle $n\geq N$. I så fald\begin{equation}
+    \lim_{n\to\infty}a_n=a
+\end{equation}En følge som konvergerer mod et tal, kaldes \textit{konvergent}, mens en følge som ikke konvergerer kaldes \textit{divergent}. Eller skrevet på en anden måde$$\forall\epsilon>0\exists N\in\mathbb{N}:n\geq N\implies|a_n-a|<\epsilon$$\end{definition}
+Altså vil der være konvergens når man for afstanden $|a_n-n|$ kan vælge et tilstrækkelig stort $n$, således at afstanden bliver mindre.\\ Andre skrivemåder benyttes iøvrigt også$$a_n$$$$(a_n)$$\\
+\begin{enumerate}
+    \item Hvis $\{a_n\}$ er konvergent så er grænseværdien entydig!
+    \item Hvis $\{a_n\}$ er konvergent så er $\{a_n|n\in\mathbb{N}\}$ begrænset
+    \item ALLE periodiske funktioner divergerer
+\end{enumerate}
+Der findes voksende og aftagende talfølger, altså hhv. $a_{n+1}>a_n$ og $a_{n+1}<a_n$, i så fald er den desuden monoton. Er den samme talfølge begrænset, da er den konvergent. \\
+\textbf{Supremumsegenskaben ved $\mathbb{R}$}: Enhver ikke-tom begrænset delmængde $A\subseteq\mathbb{R}$ har en mindste øvre grænse (supremum).
+\section{Grænseværdier}
+Når grænseværdien eksisterer skriver vi\begin{equation}
+    \lim_{n\to\infty}a_n=a,\quad a_n\to a\text{ for } n\to\infty
+\end{equation}
+\begin{theorem}Antag at $\{a_n\}$ og $\{b_n\}$ er konvergente med grænseværdi $a,b$, da gælder \begin{align*}
+    a_n\pm b_n&\to a\pm b\text{     for } n\to\infty\\
+    a_nb_n&\to ab\text{     for } n\to\infty\\
+\end{align*}\end{theorem}
+
+\section{Kontinuerlige funktioner}
+\begin{definition}{\textbf{Kontinuitet}}
+En funktion $f$ er \textit{kontinuert} i et punkt $a\in D_f$ når følgende gælder: For enhver $\epsilon>0$ findes der en $\delta>0$ så når $x\in D_f$ og $|x-a|<\delta$, så er $|f(x)-f(a)|<\epsilon$. Vi kan altså få afstanden mellem $f(x)$ og $f(a)$ mindre end $\epsilon$ ved at kræve at afstanden mellem $x$ og $a$ er mindre end $\delta$.
+\end{definition}
+\begin{theorem}
+Antag at $f$ og $g$ er kontinuerte i punktet $a$. Da vil funktionerne $f + g$, $f - g$ og $f\cdot g$ også være kontinuerte i $a$. Hvis $g(a) \neq0$ vil $\frac{f}{g}$ også være kontinuert i $a$.
+\end{theorem}
+\begin{theorem}
+Antag at $f$ og $g$ er kontinuerte i punktet $a$ og $f$ i punktet $g(a)$. Da er den sammensatte funktion $h(x)=f[g(x)]$ også kontinuert i punktet $a$.
+\end{theorem}
+\begin{theorem}{Skæringssætningen}
+Når en kontinuert funktion $f$ går fra plus til negativ værdi, da vil $f$ på et eller andet punkt være lig 0. Antag at $f:[a,b]\rightarrow\mathbb{R}$ er en kontinuert funktion hvor $f(a)$ og $f(b)$ har modsat fortegn. Da findes der et tal $c\in(a,b)$ således at $f(c)=0$.
+\end{theorem}
+\subsection{Grænseværdi af funktion}
+For grænseværdierne $\lim_{x\to a}f(x)=F$ og $\lim_{x\to a}g(x)=G$ gælder der at\begin{align}
+    &\lim_{x\to a}[f(x)+g(x)]=F+G\\
+    &\lim_{x\to a}[f(x)-g(x)]=F-G\\
+    &\lim_{x\to a}f(x)\cdot g(x)=F\cdot G\\
+    &\lim_{x\to a}\frac{f(x)}{g(x)}=\frac{F}{G},\quad\text{forudsat at }G\neq0
+\end{align}
+
+\subsection{Ekstremalsætning}
+\begin{theorem}
+Enhver kontinuert funktion $f:[a,b]\to\mathbb{R}$ har maksimum- og minimumspunkter.
+\end{theorem}

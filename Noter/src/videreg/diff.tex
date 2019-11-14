@@ -1,0 +1,41 @@
+\chapter{Infinitesimalregning}
+\section{Differentiabilitet}
+\begin{definition}Lad $c\in]a,b[$ og $D=]a,b[\setminus\{c\}$. Lad $f:D\to\mathbb{R}$. Vi siger at $f$ har grænseværdi $d$ når $x\to c$ hvis $\forall\epsilon>0\exists\delta>0\quad x\in D,|x-c|<\delta\implies|f(x)-d|>\epsilon$. Da skriver vi at $\lim_{x\to c}f(x)=d,\f(x)\to d$ når $x\to c$.\\Bemærk at $f$ er kontinuert i et (indre) punkt $c\Leftrightarrowf(x)\to f(c)$ når $x\to c$.\end{definition}
+
+\begin{definition}
+Antag at $f$ er defineret på et åbent interval der indeholder $a$, så siger vi at $f$ er differentiabel i et punkt $a$ hvis der gælder at$$\lim_{x\to a}\frac{f(x)-f(a)}{x-a}=:f'(a)$$
+\end{definition}
+\section{Integralregning}
+Hvis $f:[a,b]\to\mathbb{R}$ er kontinuert så$$F(x)=\int_a^xf(t)\,dt\quad\text{ er differentiabel i }x\text{ og }\,\,F'(x)=f(x)$$
+
+Hospitalsreglen
+
+\chapter{Differentialligninger}
+\section{Integration}
+\subsection{Delvis/partiel integration (produkt)}
+$$\int f(x)g(x)dx=f(x)G(x)-\int f'(x)G(x)dx$$eller$$\int u(x)v'(x)dx=u(x)v(x)-\int u'(x)v(x)dx$$
+\subsection{Integration ved substitution (sammensat)}
+
+Når der er en sammensat funktion.$$\int f(g(x))\cdot g'(x)dx=\int f(t)dt$$eller$$\int f(x)dx=F(x)+c$$
+Vi kan benytte det på $\int \frac{1}{\sqrt{x}+1} dx$, når $u=\sqrt{x}+1$ og $\frac{du}{dx}=\frac{1}{2\sqrt{x}}$. Bemærk at $\sqrt{x}=u-1$, da $du=\frac{1}{2\sqrt{x}}dx\implies 2\sqrt{2x}du=2(u-1)du=dx$
+$$\int \frac{1}{\sqrt{x}+1}=\int\frac{1}{u}2(u-1)du=\int2-\frac{2}{u}du=2u-2\ln{u}+C=2(\sqrt{x}+1)-2\ln{(\sqrt{x}+1}+C$$
+
+\section{Første-ordens lineære differentialligninger}
+Når $y(x)$ er den ubekendte funktion, og når$$y'(x)+f(x)y(x)=g(x)$$hvor $f(x),g(x)$ er kendte funktioner er der en lineær differentialligning.
+\begin{theorem}
+Hvis $F=\int f(x)dx$, dvs. $F'(x)=f(x)$ da er samtlige løsninger til det ovenover, givet ved\begin{equation}
+    y(x)=e^{-F(x)}\left(\int e^{F(x)}g(x)dx+C\right)
+\end{equation}
+\end{theorem}
+\section{Separable differentialligninger}
+Kan en differentialligning omskrives til at være på formen\begin{equation}
+    q(y)y'=p(x)
+\end{equation}
+Da er det en separabel diff. lign. Til sidst løser man ligningen $Q(y)=P(x)+C$ for $y$.
+\section{Andenordens, homogene ligninger med konstante koefficienter}
+Homo- eller inhomogen er på formen:$$y''+p(x)y'+q(x)y=h(x)$$
+hvor der ved homogen gælder at $h(x)=0$. En Løsning på homogen med konstante koefficienter$$ay''+py'+qy=0$$vil være givet ved to rødder, $r_1$ og $r_2$:
+\begin{equation}
+    r=\frac{-p\pm\sqrt{p^2+4aq}}{2a}
+\end{equation}
+Hvor alle løsninger er givet ved $$y=C=e^{r_1x}+De^{r_2x}$$
